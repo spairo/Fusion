@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Camu.Agente - Engine</title>
+
+    <!-- Core Css -->
+    <link href="css/core.css" rel="stylesheet" />
+    <link type="image/x-icon" href="img/Icono.ico" rel="shortcut icon" />
+
+    <!-- bower_components -->
+    <link rel="stylesheet" href="http://static.jstree.com/3.1.1/assets/dist/themes/default/style.min.css" />
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Javascript Core -->
+    <script src="js/src/jquery.min.js"></script>
+    <script src="js/src/jquery.xdomainrequest.min.js"></script>
+    <script src="js/src/bootstrap.min.js"></script>
+
+    <!-- bower_components -->
+    <script src="js/main.js" type="text/javascript"></script>
+    <script src="js/CTIsevilla.js" type="text/javascript"></script>
+  </head>
+  <body onload="flogin()">
+    <div class="loader"></div>
+    <!-- Static navbar -->
+    <div class="navbar-top f2" style="display:block;">
+      <div class="container">
+        <div class="logo" style="position:relative; z-index:3"></div>
+        <div class="pull-right" id="logoutEngine" style="position:relative ; z-index:2"><a href="#">LogOut <span class="glyphicon glyphicon-log-out"></span></a></div>
+      </div>
+    </div>
+
+    <!--  Main -->
+    <div id="main" style="display:block;">
+      <div class="subheader">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="avatar-full"></div>
+              <div class="name">User</div>
+              <div class="profile">profile</div>
+            </div>
+            <div class="col-md-4">
+              <div id="div_aux" style="display:none;">
+                <h3>Auxiliares</h3>
+                  <table>
+                    <tr>
+                      <td><div class="box-aux" id="div_aux_detalle"></div></td>
+                      <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                      <td><input id="btnDisp" type="image" title="Disponible" width="50" height="50" class="Visible" onClick="buttomClick_Disponible(this.id, this.name)" name="*61" src="Imagenes/Auxiliares/disp.png"/> </td>
+                    </tr>
+                  </table>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="pull-right">
+                <div class="dropdown custom-menu">
+                  <button type="button" class="btn btn-menu dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="glyphicon glyphicon-align-justify"></span></button>
+                  <ul class="dropdown-menu json-menu"></ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--  //Main -->
+
+    <!-- CTI dashboard -->
+    <div id="BarraInterfaces">
+      <div class="container">
+        <div id="lblComment" class="lblComment text-center"></div>
+        <div id="text-center error-cti" class="text-center"></div>
+        <div class="row">
+          <div class="col-md-4 text-center">
+            <div class="form-inline">
+              <div class="form-group">
+                <label id="lblNoMakeCall"></label>
+                <input type="text" class="form-control input-lg" id="txtNoMakeCall" placeholder="Numero">
+              </div>
+              <button type="button" id="btnMakeCall" class="btn btn-lg btn-hang" onclick="setTimeout(fMakeCall(document.getElementById('txtNoMakeCall').value), 1000)"><span class="glyphicon glyphicon-earphone"></span></button>
+            </div>
+          </div>
+          <div class="col-md-4 text-center">
+            <div class="form-inline">
+              <div class="form-group">
+                <label id="lblCallingNumber"></label>
+                <input type="text" class="form-control input-lg" id="txtStation" disabled>
+              </div>
+              <button type="button" id="btnDropCall" class="btn btn-lg btn-call" onclick="fDropCall()"><span class="glyphicon glyphicon-phone-alt"></span></button>
+            </div>
+          </div>
+          <div class="col-md-4 text-center">
+            <div class="form-inline">
+              <div class="form-group">
+                <label id="lblNoTransfer"></label>
+                <input type="text" class="form-control input-lg" id="txtNoTransfer" placeholder="Transferir">
+              </div>
+              <button type="button" id="btnTransferCall" class="btn btn-lg btn-transfercall" onclick="fTransferCall(document.getElementById('txtNoTransfer').value)"><span class="glyphicon glyphicon-transfer"></span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- // CTI dashboard -->
+
+    <iframe id="iframedataset" src="about:blank" width="100%" height="100%"></iframe>
+
+  </body>
+</html>

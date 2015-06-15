@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Camu.Agente - Engine</title>
+
+    <!-- Core Css -->
+    <link href="css/core.css" rel="stylesheet" />
+    <link type="image/x-icon" href="img/Icono.ico" rel="shortcut icon" />
+
+    <!-- bower_components -->
+    <link rel="stylesheet" href="bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
+    <link rel="stylesheet" href="http://static.jstree.com/3.1.1/assets/dist/themes/default/style.min.css" />
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+  </head>
+  <body>
+    <div class="loader"></div>
+    <!-- Static navbar -->
+    <div class="navbar-top f3" style="display:none;">
+      <div class="container">
+        <div class="logo"></div>
+        <div class="pull-right" id="logoutSettings" style="position:relative ; z-index:2"><a href="#">LogOut <span class="glyphicon glyphicon-log-out"></span></a></div>
+      </div>
+    </div>
+
+    <!--  Main -->
+    <div id="main" style="display:none;">
+      <div class="subheader">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="avatar-full"></div>
+              <div class="name">User</div>
+              <div class="profile">profile</div>
+            </div>
+            <div class="col-md-6">
+
+              <div class="pull-right">
+                <div class="dropdown custom-menu">
+                  <button type="button" class="btn btn-menu dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Menu <span class="caret"></span></button>
+                  <ul class="dropdown-menu json-menu"></ul>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--  //Main -->
+
+    <!-- fluid -->
+    <div id="Builder_Engine">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="customerInfo"></div>
+            <div class="schedule_appointment"></div>
+            <div class="customers_quotes"></div>
+          </div>
+          <div class="col-md-3">
+            <div class="base_layout"></div>
+          </div>
+          <div class="col-md-3">
+            <div class="advisory_capture"></div>
+          </div>
+          <div class="col-md-3">
+            <h4><span class="glyphicon glyphicon-folder-open"></span> Productos</h4>
+            <div class="products"></div>
+            <div class="product">
+              <div class="tags"></div>
+            </div>
+
+            <h4><span class="glyphicon glyphicon-tasks"></span> Tipificaciones</h4>
+            <div class="tree"></div>
+            <div class="trees">
+              <div class="tags"></div>
+            </div>
+            <div class="treefield"></div>
+            <div class="historical"></div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="engine-config"></div>
+        </div>
+      </div>
+    </div>
+    <!-- //fluid -->
+
+    <!-- Javascript Core -->
+    <script src="js/src/jquery.min.js"></script>
+    <script src="js/src/jquery.xdomainrequest.min.js"></script>
+    <script src="js/src/bootstrap.min.js"></script>
+    <script src="js/src/jstree.min.js"></script>
+    <script src="js/main.js" type="text/javascript"></script>
+  </body>
+</html>
