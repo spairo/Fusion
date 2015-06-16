@@ -5,6 +5,7 @@
  ++++++++++++++++++++++++++++++++*/
 
 
+//window.ws = "http://172.18.149.21/Servicios/REST.svc/";
 window.ws = "http://172.18.149.21/Servicios/REST.svc/";
 window.ctiurl = "http://172.18.149.21/WEB_Fusion/IGNACIO/HTMLPage.htm";
 window.match = location.hash.match(/^#?(.*)$/)[1];
@@ -1497,17 +1498,14 @@ $(document).on('click', '#Builder_Engine .btn-engine-done', function(){
 		}
 		else{
 
-
 			$.TypingsTransfer(AllData);
 			$.onsaveProducts(producttagid);
 			$.onsaveTyping(treetagid, treecomment);
 			$.onSaveData(labelarry, inputarry);
 			$.onSaveSkillTyping(labelarry2, inputarry2, treetagid);
 
-
 			$(".loader").slideDown("slow");
 			$("#iframedataset").attr('src', 'about:blank');
-
 
 		}
 
@@ -1936,7 +1934,7 @@ $.typiHistoryEngine = function(data){
 				var comentario = data[i].comentario;
 				var skill = data[i].skill;
 
-				var content = '<li class="list-group-item">#'+clientesHistoricoId+' '+tipologia+'  ValorClave: '+valorClave+'  Comentarios: '+comentario+'</li>';
+				var content = '<li class="list-group-item">#'+clientesHistoricoId+' '+tipologia+'  ValorClave: '+valorClave+' <button class="btn"><span class="glyphicon glyphicon-search"></span></button></li>';
 
 				$('.historical ul.list-group').append(content);
 			}

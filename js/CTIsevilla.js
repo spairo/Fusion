@@ -251,7 +251,7 @@ function ftransfered(data) {
         var sCallid = data.callid;
         var sUcid = data.ucid;
         //HISTORIAL.value = "<br>" + ("transfer call from: " + sANI + " Callid: " + sCallid + " UCID: " + sUcid);
-    } catch (e) {
+    }catch(e){
         data = {
             metodo: "CTI ftransfered",
             error: e
