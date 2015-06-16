@@ -7040,10 +7040,11 @@ button.close {
 }
   .box-add h1{
     text-align: center;
-    font-weight: bold;
+    font-weight: lighter;
     color: #7F8C97;
   }
   .box-add label{
+    font-weight: lighter;
     color: #7F8C97;
   }
   .box-add .btn-add{
@@ -7167,30 +7168,30 @@ button.close {
     box-shadow: none;
   }
   #search-result-get .add-client{
-    background: #95a5a6;
+    background: #BDC3C7;
     margin: 0 auto;
     width:100%;
-    padding: 10px 5px;
+    padding: 12px 12px;
     color: #fff;
-    font-size: 18px;
+    font-size: 22px;
     border: 0;
-    border-bottom: 2px solid #7f8c8d;
+    border-bottom: 1px solid #7f8c8d;
     cursor: pointer;
-    -webkit-box-shadow: inset 0 -2px #7f8c8d;
-    box-shadow: inset 0 -2px #7f8c8d;
+    -webkit-box-shadow: inset 0 -1px #7f8c8d;
+    box-shadow: inset 0 -1px #7f8c8d;
   }
   #search-result-get .add-client:hover{
     background: #e74c3c;
     margin: 0 auto;
     width:100%;
-    padding: 10px 5px;
+    padding: 12px 12px;
     color: #fff;
-    font-size: 18px;
+    font-size: 22px;
     border: 0;
-    border-bottom: 2px solid #c0392b;
+    border-bottom: 1px solid #c0392b;
     cursor: pointer;
-    -webkit-box-shadow: inset 0 -2px #c0392b;
-    box-shadow: inset 0 -2px #c0392b;
+    -webkit-box-shadow: inset 0 -1px #c0392b;
+    box-shadow: inset 0 -1px #c0392b;
   }
   #search-result-get .add-client:active{
     top: 1px;
@@ -7482,27 +7483,14 @@ button.close {
       font-weight: bold;
     }
   #Builder_Engine .products{
-    margin-top: 40px;
-    padding: 0px 20px;
-    height: 100px;
+    min-height: 10px;
+    max-height: 250px;
+    overflow: auto;
   }
     #Builder_Engine .products h3{
       color: #7F8C97;
       text-align: center;
       font-weight: bold;
-    }
-    #Builder_Engine .products .list-group-item{
-      background: #ecf0f1;
-      border-bottom: 3px #bdc3c7 solid;
-      color: #7f8c8d;
-      text-align: center;
-      border-radius: 0;
-    }
-    #Builder_Engine .products .list-group-item:hover{
-      background: #e74c3c;
-      border-bottom: 3px #c0392b solid;
-      text-align: center;
-      color: #fff;
     }
 
 /* CTI Dashboard */

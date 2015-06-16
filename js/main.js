@@ -322,12 +322,7 @@ $.router = function(router){
 
 $.searchGet = function(){
 
-	if ($("#BarraInterfaces").length > 0){
-		$(".navbar-top").hide();
-	}
-	else{
-		$(".navbar-top").show();
-	}
+	$(".navbar-top .f1").show();
 
 	$("#main").hide();
 
@@ -413,7 +408,7 @@ $.searchGet = function(){
 
 			}else{
 				//console.log("vasio, voy a agregar boton de crear");
-				$('#search-result-get').empty().slideDown("slow").append('<div class="btn-group btn-group-lg pull-left" role="group" aria-label="config"><button class="btn btn-search add-client">Crear Cliente <span class="glyphicon glyphicon-plus"></button></div><div class="result"></div>');
+				$('#search-result-get').empty().slideDown("slow").append('<div class="btn-group btn-group-lg pull-left" role="group" aria-label="config"><button class="btn btn-lg btn-search add-client"><span class="glyphicon glyphicon-user"></span> <span class="glyphicon glyphicon-plus"></span></button></div><div class="result"></div>');
 				$(".result").empty().slideDown("slow").append('<span class="not-found">No hay resultados</span>');
 			}
 
@@ -929,8 +924,11 @@ $(document).on('click', '#services .service-choice', function(){
 $(document).on('click', '.choice-skill', function(){
 
 	var skillID = $(".skillchoice").val();
+	var skillTxt = $(".skillchoice").text();
 
 	localStorage.setItem("SkillId", skillID);
+	localStorage.setItem("skillTxt", skillTxt);
+	console.log("skillTxt", skillTxt);
 
 	var iduser = localStorage.getItem('id');
 
@@ -1523,7 +1521,7 @@ $.cssEngine = function(data){
 
 	//var skillidx = "1";
 	//var serviciosidx = "1";
-	alert("onsetEngine");
+	//alert("onsetEngine");
 	var skillidx = localStorage.getItem('SkillId');
 	var serviciosidx = localStorage.getItem('serviciosId');
 
@@ -1597,7 +1595,7 @@ $.baselayoutEngine = function(data){
 							}
 
 						}else{
-							$('.base_layout').append('<h4 class="text-center"><span class="glyphicon glyphicon-eye-open"></span> Datos Layout Base</h4>');
+							//$('.base_layout').append('<h4 class="text-center"><span class="glyphicon glyphicon-eye-open"></span> Datos Layout Base</h4>');
 						}
 					}
 
@@ -1613,6 +1611,9 @@ $.captureRenderEngine = function(data){
 
 	//var skillidx = "4";
   //var serviciosidx = "2";
+	var compare;
+	$.loadCustomerInfo(compare);
+
 	var skillidx = localStorage.getItem('SkillId');
 	var serviciosidx = localStorage.getItem('serviciosId');
 
@@ -1658,11 +1659,7 @@ $.captureRenderEngine = function(data){
 									}
 									if(form == "combo" || form == "Combo"){
 
-											console.log(defaultvalue);
-
 											var arrayselect = defaultvalue.split(',');
-
-											console.log(arrayselect);
 
 											var selectDinamic = '<div class="form-group form-dinamic"><label class="control-label">'+name+'</label><select id="fill-select" name="'+name+'" class="form-control input-sm input-dinamic">';
 
@@ -1803,7 +1800,7 @@ $.productsEngine = function(data){
 							var data = skills[i].productos;
 
 							if(!data){
-
+								//$('#Builder_Engine .products').append('<h4 class="text-center"><span class="glyphicon glyphicon-tag"></span> null</h4>');
 							}else{
 
 								$('#Builder_Engine .products').append('<h4 class="text-center"><span class="glyphicon glyphicon-tag"></span> Productos</h4>');
@@ -1813,7 +1810,7 @@ $.productsEngine = function(data){
 
 								$('#Builder_Engine .products').on('changed.jstree', function(e, data){
 								    var i, j, r = [], id = [];
-								    for(i = 0, j = data.selected.length; i < j; i++) {
+								    for(i = 0, j = data.selected.length; i < j; i++){
 											id.push(data.instance.get_node(data.selected[i]).id);
 											r.push(data.instance.get_node(data.selected[i]).text);
 								    }
@@ -2104,8 +2101,6 @@ $.skillsTyping = function(node){
 
 $.TypingsTransfer = function(data){
 
-	alert("validando transfer");
-
 	var nodeTy = $('#Builder_Engine .trees .tags .tag').attr('id');
 	var skillidx = localStorage.getItem('SkillId');
 	var serviciosidx = localStorage.getItem('serviciosId');
@@ -2144,6 +2139,49 @@ $.TypingsTransfer = function(data){
 
 };
 
+$.loadCustomerInfo = function(data){
+	alert("rg_MuestraClienteDatos");
+	var url = ws+"rg_MuestraClienteDatos";
+
+	var clientesId = localStorage.getItem('clientesId');
+	var serviciosId = localStorage.getItem('serviciosId');
+	var myid = localStorage.getItem('id');
+	var skillTxt = localStorage.getItem('skillTxt');
+
+	var Data = {
+		clientesClaveId: clientesId,
+		serviciosId: serviciosId,
+		skill: skillTxt,
+		usuariosId: myid
+	}
+
+	$.support.cors = true;
+	$.ajax({
+		type: "GET",
+		url: url,
+		crossDomain: true,
+		data: Data,
+		contentType: "application/json; charset=utf-8",
+		dataType: "json",
+		success: function(data){
+
+			$("#Builder_Engine .advisory_capture #Poliza").val(data[0].Poliza);
+			$("#Builder_Engine .advisory_capture #Titular").val(data[0].Titular);
+			$("#Builder_Engine .advisory_capture #email").val(data[0].email);
+			$("#Builder_Engine .advisory_capture #telefono").val(data[0].telefono);
+			$("#Builder_Engine .advisory_capture #celular").val(data[0].celular);
+			$("#Builder_Engine .advisory_capture #Nip").val(data[0].Nip);
+			$("#Builder_Engine .advisory_capture #Tipo").val(data[0].Tipo);
+			$("#Builder_Engine .advisory_capture #Comentarios").val(data[0].Comentarios);
+			$("#Builder_Engine .advisory_capture #Fondo").val(data[0].Fondo);
+			$("#Builder_Engine .advisory_capture #Monto").val(data[0].Monto);
+			$("#Builder_Engine .advisory_capture #Moneda").val(data[0].Moneda);
+			$("#Builder_Engine .advisory_capture #Resolucion").val(data[0].Resolucion);
+
+		},error: function(data){}
+	});
+
+};
 /*===========================
 				  Saving
  ============================*/
@@ -2314,7 +2352,7 @@ $.onSaveSkillTyping = function(labels, inputs, nodetree){
 };
 
 $.onTransfer = function(){
-	alert("done");
+
 	var vdnTransfirio = localStorage.getItem('vdnTransfiere');
 
 	if(vdnTransfirio == null || vdnTransfirio == undefined){
